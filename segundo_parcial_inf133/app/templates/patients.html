@@ -1,0 +1,10 @@
+<a href="{{ url_for('create_patient') }}">Create Patient</a>
+<ul>
+    {% for patient in patients %}
+        <li>{{ patient.name }} {{ patient.lastname }}</li>
+        <a href="{{ url_for('update_patient', id=patient.id) }}">Edit</a>
+        <form method="POST" action="{{ url_for('delete_patient', id=patient.id) }}">
+            <button type="submit">Delete</button>
+        </form>
+    {% endfor %}
+</ul>
